@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Best Lao - ช่องทางติดต่อ</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --card:rgba(16,16,16,.80);
+      --border:rgba(255,215,0,.22);
+      --gold:#ffd86b;
+      --gold-2:#d39a19;
+      --gold-soft:rgba(255,216,107,.16);
+      --text:#fff8df;
+      --muted:#d8c79a;
+      --shadow:0 18px 60px rgba(0,0,0,.56);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top, rgba(255,214,0,.14), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255,190,0,.12), transparent 28%),
+        linear-gradient(135deg, #000 0%, #0a0a0a 42%, #151515 100%);
+      overflow-x:hidden;
+    }
+
+    .line{
+      position:fixed;
+      inset:auto;
+      pointer-events:none;
+      z-index:0;
+      opacity:.75;
+      filter:blur(1px);
+    }
+    .line.one{top:10%;left:-12%;width:124%;height:2px;background:linear-gradient(90deg, transparent, rgba(255,215,0,.75), transparent);transform:rotate(-7deg);animation:sweep 11s linear infinite}
+    .line.two{top:68vh;left:-10%;width:120%;height:1px;background:linear-gradient(90deg, transparent, rgba(255,205,80,.5), transparent);transform:rotate(9deg);animation:sweep2 13s linear infinite}
+    @keyframes sweep{0%{transform:translateX(-2%) rotate(-7deg)}50%{transform:translateX(2%) rotate(-7deg)}100%{transform:translateX(-2%) rotate(-7deg)}}
+    @keyframes sweep2{0%{transform:translateX(2%) rotate(9deg)}50%{transform:translateX(-2%) rotate(9deg)}100%{transform:translateX(2%) rotate(9deg)}}
+
+    .wrap{
+      position:relative;
+      z-index:1;
+      min-height:100svh;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:12px;
+      padding-bottom:max(12px, env(safe-area-inset-bottom));
+    }
+
+    .card{
+      width:min(100%, 760px);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      backdrop-filter:blur(12px);
+    }
+
+    .hero{
+      padding:18px 16px 16px;
+      text-align:center;
+      border-bottom:1px solid rgba(255,215,0,.12);
+      background:linear-gradient(180deg, rgba(0,0,0,.56), rgba(0,0,0,.25));
+    }
+
+    .logo{
+      width:min(48vw, 220px);
+      margin:2px auto 10px;
+      display:block;
+    }
+    .logo img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      border-radius:0;
+      filter:drop-shadow(0 0 10px rgba(255,216,107,.12));
+    }
+
+    .title{
+      font-size:clamp(34px, 8vw, 58px);
+      line-height:1.02;
+      font-weight:900;
+      color:#fff0a8;
+      letter-spacing:.5px;
+      text-shadow:0 0 14px rgba(255,214,0,.14);
+    }
+
+    .subtitle{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .marquee{
+      width:100%;
+      overflow:hidden;
+      margin:14px 0 0;
+      padding:10px 0;
+      border-radius:18px;
+      border:1px solid rgba(255,215,0,.22);
+      background:linear-gradient(90deg, rgba(255,215,0,.08), rgba(255,215,0,.16), rgba(255,215,0,.08));
+      box-shadow:0 0 16px rgba(255,215,0,.10);
+    }
+    .marquee-track{
+      display:inline-block;
+      white-space:nowrap;
+      color:#ffd700;
+      font-size:16px;
+      font-weight:800;
+      text-shadow:0 0 10px rgba(255,215,0,.45);
+      padding-left:100%;
+      animation:marqueeRun 18s linear infinite;
+    }
+    @keyframes marqueeRun{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-100%)}
+    }
+
+    .content{
+      padding:14px;
+      display:grid;
+      gap:14px;
+      background:linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.34));
+    }
+
+    .panel{
+      border:1px solid rgba(255,205,70,.14);
+      border-radius:22px;
+      background:rgba(255,255,255,.03);
+      padding:14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .panel h2{
+      font-size:18px;
+      color:#ffe18d;
+      margin-bottom:4px;
+      line-height:1.2;
+    }
+    .panel p{font-size:14px;color:var(--muted);line-height:1.45}
+    .badge{white-space:nowrap;font-size:14px;color:#f6d36e}
+
+    .buttons{
+      display:grid;
+      gap:12px;
+    }
+
+    .btn{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:64px;
+      border-radius:18px;
+      text-decoration:none;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.2px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 12px 24px rgba(0,0,0,.26);
+      transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      overflow:hidden;
+      user-select:none;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .btn:hover,.btn:active{transform:translateY(-1px);box-shadow:0 16px 28px rgba(0,0,0,.32)}
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(255,255,255,.28), transparent 40%, transparent 60%, rgba(255,255,255,.14));
+      transform:translateX(-120%);
+      transition:transform .45s ease;
+    }
+    .btn:hover::before{transform:translateX(120%)}
+
+    .whatsapp{background:linear-gradient(135deg, #50ec8b, #16c963); color:#07210f}
+    .linebtn{background:linear-gradient(135deg, #7bff58, #11c84a); color:#0a210f}
+    .messenger{background:linear-gradient(135deg, #6cb0ff, #1478ff); color:#fff}
+    .vip{background:linear-gradient(135deg, #fff0b0, #f0bf35, #b97b08); color:#161100}
+    .btn span.icon{font-size:22px;line-height:1}
+
+    .footer{
+      padding:0 16px 18px;
+      text-align:center;
+      color:#c7b27a;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .footer .small{opacity:.9;font-size:12px}
+
+    @media (min-width:700px){
+      .wrap{padding:20px;padding-top:14px}
+      .hero{padding:28px 22px 22px}
+      .content{padding:18px}
+      .panel{padding:16px 18px}
+      .btn{min-height:72px;font-size:19px}
+      .logo{width:220px}
+    }
+  </style>
+</head>
+<body>
+  <div class="line one"></div>
+  <div class="line two"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <header class="hero">
+        <div class="logo">
+          <img src="logo.png" alt="BEST LAO" />
+        </div>
+
+        <div class="title">BEST LAO</div>
+
+        <div class="marquee" aria-label="ข้อความวิ่งต้อนรับ">
+          <div class="marquee-track">
+            👑 BEST LAO VIP 👑 ยินดีต้อนรับสมาชิกทุกท่าน • ฝาก-ถอนรวดเร็ว 24 ชั่วโมง • ติดต่อผ่าน WhatsApp • LINE • Messenger • โปรโมชั่นพิเศษทุกวัน •
+          </div>
+        </div>
+
+        <div class="subtitle">ช่องทางติดต่อทางการ • พร้อมให้บริการตลอด 24 ชั่วโมง</div>
+      </header>
+
+      <div class="content">
+        <div class="panel">
+          <div>
+            <h2>บริการแบบ VIP คาสิโนหรู</h2>
+            <p>ติดต่อได้ผ่าน WhatsApp, LINE และ Messenger</p>
+          </div>
+          <div class="badge">⚡ Fast Response</div>
+        </div>
+
+        <div class="buttons">
+          <a class="btn whatsapp" href="https://wa.me/message/SAXA3TIYTLFMF1" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📞</span>
+            <span>WhatsApp</span>
+          </a>
+
+          <a class="btn linebtn" href="https://lin.ee/AZuTyWK" target="_blank" rel="noopener noreferrer">
+            <span class="icon">💬</span>
+            <span>LINE</span>
+          </a>
+
+          <a class="btn messenger" href="https://m.me/161227337074501" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📩</span>
+            <span>Messenger</span>
+          </a>
+
+          <a class="btn vip" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <span class="icon">👑</span>
+            <span>BEST LAO VIP</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>Best Lao • Luxury Contact Page</div>
+        <div class="small">ใช้ไฟล์โลโก้ชื่อ <b>logo.png</b> วางไว้โฟลเดอร์เดียวกับไฟล์ HTML</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
